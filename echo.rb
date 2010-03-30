@@ -11,6 +11,7 @@ class Ping
   property :id, Serial
   property :url, String
   property :contents, Text, :lazy => false
+  property :created_at, DateTime
 end
 DataMapper.auto_upgrade!
 
@@ -19,5 +20,5 @@ post '/:url_h3879h23' do
 end
 
 get '/:url' do
-  Ping.all(:url => params[:url]).collect{|ping| "<div>#{ping.contents}</div>"}.join("")
+  Ping.all(:url => params[:url]).collect{|ping| "<div>#{ping.created_at}: #{ping.contents}</div>"}.join("<br/><br/>")
 end
