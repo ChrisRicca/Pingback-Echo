@@ -14,8 +14,8 @@ class Ping
 end
 DataMapper.auto_upgrade!
 
-post '/:url' do
-  Ping.create :url => params[:url], :contents => params.inspect
+post '/:url_h3879h23' do
+  Ping.create :url => params[:url_h3879h23], :contents => (params).delete_if{|k,v| k == :url_h3879h23}.inspect
 end
 
 get '/:url' do
