@@ -15,6 +15,12 @@ class Ping
 end
 DataMapper.auto_upgrade!
 
+get '/' do
+  random = rand(10000000000).to_s(16)
+  link = "http://echo.heroku.com/#{random}"
+  "Try it out: 1) curl #{link} -d \"foo=bar&awe=some\" 2) <a href='#{link}'>#{link}</a> "
+end
+
 post '/:url_h3879h23' do
   Ping.create :url => params[:url_h3879h23], :contents => (params).delete_if{|k,v| k == "url_h3879h23"}.inspect
 end
