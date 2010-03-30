@@ -18,7 +18,7 @@ DataMapper.auto_upgrade!
 get '/' do
   random = rand(10000000000).to_s(16)
   link = "http://echo.heroku.com/#{random}"
-  "Try it out: 1) curl #{link} -d \"foo=bar&awe=some\" 2) <a href='#{link}'>#{link}</a> "
+  "Try it out: <ol><li>curl #{link} -d \"foo=bar&awe=some\"</li><li><a href='#{link}'>#{link}</a></li>"
 end
 
 post '/:url_h3879h23' do
@@ -26,5 +26,5 @@ post '/:url_h3879h23' do
 end
 
 get '/:url' do
-  Ping.all(:url => params[:url]).collect{|ping| "<div>#{ping.created_at}: #{ping.contents}</div>"}.join("<br/><br/>")
+  Ping.all(:url => params[:url]).collect{|ping| "<div>#{ping.created_at}: #{ping.contents}</div>"}.join("<br/>")
 end
