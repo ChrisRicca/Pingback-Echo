@@ -2,7 +2,6 @@ require 'rubygems'
 require 'sinatra'
 require 'dm-core'
 require 'dm-timestamps'
-require 'pp'
 
 DataMapper.setup(:default, ENV['DATABASE_URL'] || "sqlite3://#{Dir.pwd}/development.sqlite3")
 
@@ -16,7 +15,7 @@ end
 DataMapper.auto_upgrade!
 
 post '/:url' do
-  Ping.create(:url => params[:url], :contents => "testing")
+  Ping.create :url => params[:url], :contents => params.inspect
 end
 
 get '/:url' do
