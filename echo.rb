@@ -16,7 +16,7 @@ end
 DataMapper.auto_upgrade!
 
 post '/:url' do
-  Ping.create(:url => params[:url], :contents => pp(params))
+  Ping.create(:url => params[:url], :contents => "testing")
 end
 
 get '/:url' do
