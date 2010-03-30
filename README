@@ -1,0 +1,16 @@
+PingBack-Echo
+-------------
+
+This Sinatra app was built as a quick scratch-pad to test asynchronous pingbacks from APIs such as http://api.drop.io
+
+It is pre-wired to run on heroku.  You can demo the app at http://echo.heroku.com
+
+Or, you can run your own instance on heroku if you have the heroku gem installed:
+
+git clone git@github.com:ChrisRicca/Pingback-Echo.git
+cd Pingback-Echo
+heroku create yourname-pingback-echo
+git push heroku master
+heroku open
+
+Enjoy!
